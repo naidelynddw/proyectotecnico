@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Área Técnico Informática 2025-26</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            color: #333; /* Changed to a darker color for better readability on light backgrounds */
+            background: #fff2cc; /* Light pastel background */
+            padding-bottom: 50px; /* Add padding for footer */
+        }
+
+        header {
+            padding: 20px;
+            background: #6c5ce7; /* Purple pastel */
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+            position: relative;
+            display: flex;
+            align-items: center; /* Vertically align items */
+            justify-content: flex-start; /* Align to the start */
+            flex-wrap: wrap; /* Allow content to wrap */
+        }
+
+        header img {
+            width: 80px; /* Smaller logo */
+            height: 80px; /* Ensure height matches width */
+            margin-right: 20px;
+            border-radius: 50%;
+            border: 3px solid #fff; /* Thinner border */
+            object-fit: cover; /* Ensures image covers area without distortion */
+            flex-shrink: 0; /* Prevent image from shrinking */
+        }
+
+        .header-text {
+            flex-grow: 1; /* Allows text to take available space */
+        }
+
+        header h1 {
+            color: #fff9cc;
+            font-size: 28px; /* Slightly smaller for better fit */
+            margin: 0 0 5px 0; /* Adjust margins */
+            text-shadow: 2px 2px 5px #5e52ff;
+        }
+
+        header p {
+            color: #fff2cc;
+            font-size: 18px; /* Slightly smaller */
+            margin: 0 0 3px 0;
+            text-shadow: 1px 1px 4px #5e52ff;
+        }
+
+        header p.autor {
+            color: #fff9cc;
+            font-size: 16px; /* Slightly smaller */
+            font-style: italic;
+        }
+
+        nav {
+            margin: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 15px;
+            justify-content: center; 
+        }
+
+        nav ul li {
+            padding: 12px 25px; 
+            border-radius: 30px;
+            color: #fff;
+            font-size: 17px; 
+            font-weight: bold;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, filter 0.3s ease;
+            white-space: nowrap; 
+        }
+
+        nav ul li:nth-child(1) { background: #fdcb6e; } /* Diseño y Desarrollo Web */
+        nav ul li:nth-child(2) { background: #e17055; } /* Soporte Técnico */
+        nav ul li:nth-child(3) { background: #55efc4; } /* Sistemas Operativos */
+        nav ul li:nth-child(4) { background: #81ecec; } /* Aplicaciones Ofimáticas */
+        nav ul li:nth-child(5) { background: #a29bfe; } /* Programación y Base de Datos */
+
+        nav ul li:hover {
+            transform: translateY(-5px);
+            filter: brightness(1.1);
+        }
+
+        nav ul li ul {
+            position: absolute;
+            top: 100%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            padding: 10px;
+            background: #fff9cc; 
+            border-radius: 15px; 
+            display: none; 
+            list-style: none;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+            min-width: 180px; 
+            flex-direction: column; 
+            gap: 8px; 
+            z-index: 1000; 
+            text-align: center; 
+        }
+
+        nav ul li:hover ul {
+            display: flex; 
+       }
+
+        nav ul li ul li {
+            padding: 8px 15px; 
+            margin: 0; 
+            border-radius: 15px;
+            color: #6c5ce7; 
+            background: #fff2cc; 
+            transition: background 0.3s ease, color 0.3s ease;
+            box-shadow: none; 
+            font-size: 16px; 
+            font-weight: normal; 
+        }
+
+        nav ul li ul li:nth-child(1) { background: #b2f0b2; color: #007f00; } /* 1st trimester: light green, dark green text */
+        nav ul li ul li:nth-child(2) { background: #ffd9b3; color: #cc6600; } /* 2nd trimester: light orange, dark orange text */
+        nav ul li ul li:nth-child(3) { background: #b3d9ff; color: #003366; } /* 3rd trimester: light blue, dark blue text */
+
+
+        nav ul li ul li:hover {
+            background: #fdcb6e; /* Hover background for submenu items */
+            color: #fff; /* Hover text color for submenu items */
+            transform: none; /* Remove translateY on hover for subitems */
+            filter: brightness(1.1);
+        }
+
+        nav ul li ul li a {
+            color: inherit; /* Inherit color from parent li for submenu links */
+            text-decoration: none;
+            display: block; /* Make the whole area clickable */
+            font-size: inherit; /* Inherit font size */
+            font-weight: inherit; /* Inherit font weight */
+        }
+
+        .content-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 30px auto;
+            text-align: center; 
+        }
+
+        .content-section h2 {
+            color: #6c5ce7;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 3px #fdcb6e;
+            font-size: 2em;
+        }
+
+        .file-item {
+            margin-bottom: 20px;
+            padding: 15px 25px;
+            background: #fdcb6e; /* Yellow pastel for file items */
+            border-radius: 20px;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+            display: inline-block; /* Allows side-by-side if space permits */
+            max-width: 100%; /* Ensure it doesn't overflow */
+            box-sizing: border-box; /* Include padding in width */
+            text-align: left; /* Align text within file item to left */
+            cursor: pointer;
+        }
+
+        .file-item:hover {
+            transform: translateY(-5px);
+            filter: brightness(1.1);
+            background: #fda50f; /* Darker yellow on hover */
+        }
+
+        .file-item a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            display: block; /* Make the whole block clickable */
+        }
+
+        .file-item img, .file-item video {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Ensure images/videos take full width of parent */
+            margin: 15px auto 0; /* Space above, center horizontally */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: #6c5ce7; /* Purple pastel */
+            border-radius: 25px;
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .volver:hover {
+            transform: translateY(-5px);
+            filter: brightness(1.1);
+            background: #5e52ff; /* Darker purple on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logoUNID.jpg" alt="Logo del Colegio">
+        <div class="header-text">
+            <h1>Proyecto Área Técnico Informática 2025-26</h1>
+            <p>Curso: 3er año de bachillerato "M"</p>
+            <p class="autor">Autor: Narvaez Garcia N.</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                Diseño y Desarrollo Web
+                <ul>
+                     <li><a href="1er trimestre.html">1er trimestre</a></li>
+                     <li><a href="diseño_desarrollo_web/segundo_trimestre.html">2do trimestre</a></li>
+                     <li><a href="diseño_desarrollo_web/tercer_trimestre.html">3er trimestre</a></li>
+                </ul>
+            </li>
+            <li>
+                Soporte Técnico
+                <ul>
+                    <li><a href="soporte_tecnico/primer_trimestre.html">1er trimestre</a></li>
+                    <li><a href="soporte_tecnico/segundo_trimestre.html">2do trimestre</a></li>
+                   <li><a href="soporte_tecnico/tercer_trimestre.html">3er trimestre</a></li>
+                </ul>
+            </li>
+            <li>
+                Sistemas Operativos
+                <ul>
+                    <li><a href="sistemas_operativos/primer_trimestre.html">1er trimestre</a></li>
+                    <li><a href="sistemas_operativos/segundo_trimestre.html">2do trimestre</a></li>
+                    <li><a href="sistemas_operativos/tercer_trimestre.html">3er trimestre</a></li>
+                </ul>
+            </li>
+            <li>
+                Aplicaciones Ofimáticas Locales y Online
+                <ul>
+                    <li><a href="ofimatica/primer_trimestre.html">1er trimestre</a></li>
+                    <li><a href="ofimatica/segundo_trimestre.html">2do trimestre</a></li>
+                    <li><a href="ofimatica/tercer_trimestre.html">3er trimestre</a></li>
+                </ul>
+            </li>
+            <li>
+             Programacion y Base de datos
+                <ul>
+                    <li><a href="ofimatica/primer_trimestre.html">1er trimestre</a></li>
+                    <li><a href="ofimatica/segundo_trimestre.html">2do trimestre</a></li>
+                    <li><a href="ofimatica/tercer_trimestre.html">3er trimestre</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+   
+
+</body>
+</html>
